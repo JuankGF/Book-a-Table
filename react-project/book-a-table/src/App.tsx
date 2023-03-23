@@ -1,11 +1,16 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <>
+      <header className="app-header">
+        <img src="" alt="app-logo" className="app-logo"></img>
+        <nav></nav>
+      </header>
+      <main></main>
+      <footer></footer>
+    </>
   );
 }
 
