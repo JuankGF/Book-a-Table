@@ -18,7 +18,7 @@ export default function Header({ userName, showAvatar = true }: HeaderProps) {
   const toogleCollapse = () => setShowCollapsed((collapsed) => !collapsed);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar sticky-top navbar-expand-lg bg-white">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
