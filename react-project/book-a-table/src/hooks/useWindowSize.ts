@@ -23,7 +23,11 @@ const useWindowSize = () => {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  return { windowSize, isSmallScreen: windowSize.width! <= 820 };
+  return {
+    windowSize,
+    isSmallScreen: windowSize.width! <= 820,
+    isMobile: windowSize.width! <= 480,
+  };
 };
 
 export { useWindowSize };
