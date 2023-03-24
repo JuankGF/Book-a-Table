@@ -1,11 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import React, { useState } from "react";
+import { Image } from "react-bootstrap";
 
 import logo from "../../assets/logo.png";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
   showAvatar?: boolean;
@@ -13,29 +12,43 @@ type HeaderProps = {
 };
 
 export default function Header({ userName, showAvatar = true }: HeaderProps) {
-  const windowSize = useWindowSize();
-  const isSmallScreen = windowSize.width! <= 720;
+  const { isSmallScreen } = useWindowSize();
+  const [showCollapsed, setShowCollapsed] = useState(true);
+
+  const toogleCollapse = () => setShowCollapsed((collapsed) => !collapsed);
 
   return (
-    <Container as="header" className="app-header">
-      <Row className="w-100">
-        {isSmallScreen && (
-          <Col xs={4}>
-            <FontAwesomeIcon icon={faBars} />
-          </Col>
-        )}
-        <Col xs={4}>
-          <img src={logo} alt="logo" className="app-logo"></img>
-        </Col>
-
-        <Col
-          xs={4}
-          sm={8}
-          as="nav"
-          className="d-flex align-items-center justify-content-end"
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          onClick={toogleCollapse}
         >
-          {!isSmallScreen && <Navbar />}
-          <span className="avatar">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <Link className="navbar-brand" to="/">
+          <img
+            src={logo}
+            alt="logo"
+            className="app-logo"
+            height={isSmallScreen ? "10vmin" : "8vmin"}
+          ></img>
+        </Link>
+        <div
+          className={`collapse navbar-collapse bg-light ${
+            !showCollapsed && "show border py-2 mt-1"
+          }`}
+        >
+          <Navbar />
+        </div>
+        {showCollapsed && (
+          <span className="avatar navbar-end">
             <Image
               alt="avatar"
               roundedCircle
@@ -46,8 +59,8 @@ export default function Header({ userName, showAvatar = true }: HeaderProps) {
               className="shadow-sm"
             ></Image>
           </span>
-        </Col>
-      </Row>
-    </Container>
+        )}
+      </div>
+    </nav>
   );
 }
