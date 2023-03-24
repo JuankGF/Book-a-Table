@@ -14,7 +14,7 @@ main {
   scrollbar-width: 3rem;
   max-height: calc(100% - 25vmin);
   padding-bottom: 12vmin;
-  padding-top: 8vmin;
+  padding-top: 2vmin;
 }
 
 .app-logo {
@@ -133,6 +133,16 @@ nav {
   text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
+@media (max-width: 480px) {
+  .banner-img {
+    width: 5.8rem;
+  }
+  .on-top {
+    left: 4rem;
+    top: 10px;
+  }
+}
+
 @media (min-width: 500px) {
   .carousel-img {
     height: 7.5rem;
@@ -151,7 +161,7 @@ nav {
     height: 8rem;
   }
   .banner-img {
-    width: 8.5rem;
+    width: 9rem;
   }
   .on-top {
     left: 8rem;

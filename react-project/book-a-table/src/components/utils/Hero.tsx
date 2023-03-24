@@ -21,9 +21,9 @@ export default function Hero({
   text = "We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist",
 }: PropsWithChildren<HeroProps>) {
   return (
-    <Container className={`hero ${className}`}>
-      <Row style={{ padding: "2em", paddingInline: "5em" }}>
-        <Col xs={6} md={6}>
+    <Container className={`hero ${className ?? ""}`}>
+      <Row style={{ padding: "2em" }}>
+        <Col>
           <h2 className="text-secondary text-shadow-sm">Little Lemon</h2>
           <h4 className={`text-shadow-sm ${text_class}`}>{rest_location}</h4>
           <p className={text_class}>{text}</p>
@@ -31,7 +31,7 @@ export default function Hero({
             Reserve a Table
           </Button>
         </Col>
-        <Col xs={6}>{children}</Col>
+        {children && <Col xs={6}>{children}</Col>}
       </Row>
     </Container>
   );
