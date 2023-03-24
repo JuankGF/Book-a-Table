@@ -1,8 +1,19 @@
+$primary_color: #495e57;
+$secondary_color: #f4ce14;
+$secondary_color_light: #fbdabb;
+
+$theme-colors: (
+  "primary": $primary_color,
+  "secondary": $secondary_color,
+);
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Markazi Text", "Karla",
-    "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Markazi Text", "Karla", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,13 +23,6 @@ code {
     monospace;
 }
 
-$primary_color: #495e57;
-$secondary_color: #f4ce14;
-
-$theme-colors: (
-  "primary": $primary_color,
-  "secondary": $secondary_color,
-);
-
-/* import bootstrap to set changes */
-@import "~bootstrap/scss/bootstrap";
+#root {
+  position: relative;
+}

@@ -1,15 +1,17 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import "./App.scss";
+
+import Header from "./components/utils/Header";
 
 function App() {
   return (
     <>
-      <header className="app-header">
-        <img src="" alt="app-logo" className="app-logo"></img>
-        <nav></nav>
-      </header>
-      <main></main>
-      <footer></footer>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <footer>Little Lemon</footer>
     </>
   );
 }
