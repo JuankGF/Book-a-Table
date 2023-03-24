@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 
@@ -17,12 +19,18 @@ export default function Header({ userName, showAvatar = true }: HeaderProps) {
   return (
     <Container as="header" className="app-header">
       <Row className="w-100">
+        {isSmallScreen && (
+          <Col xs={4}>
+            <FontAwesomeIcon icon={faBars} />
+          </Col>
+        )}
         <Col xs={4}>
           <img src={logo} alt="logo" className="app-logo"></img>
         </Col>
 
         <Col
-          xs={8}
+          xs={4}
+          sm={8}
           as="nav"
           className="d-flex align-items-center justify-content-end"
         >
@@ -34,7 +42,7 @@ export default function Header({ userName, showAvatar = true }: HeaderProps) {
               src={`https://api.dicebear.com/5.x/fun-emoji/svg?seed=${
                 userName ?? "avatar"
               }`}
-              width="40vmin"
+              width={`${isSmallScreen ? "30vmin" : "40vmin"}`}
               className="shadow-sm"
             ></Image>
           </span>
