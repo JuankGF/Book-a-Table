@@ -35,7 +35,8 @@ export default function Navbar() {
           alt="avatar"
           roundedCircle
           src="https://api.dicebear.com/5.x/fun-emoji/svg?seed=avatar"
-          width="45vmin"
+          width="40vmin"
+          className="shadow-sm"
         ></Image>
       </li>
     </ul>
