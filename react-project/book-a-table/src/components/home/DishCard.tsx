@@ -19,12 +19,18 @@ export default function DishCard({
   actionIcon,
 }: DishCardProps) {
   return (
-    <Card className="shadow-sm">
+    <Card className="shadow-sm h-100">
       <Card.Img variant="top" src={image} className="card-image" />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text className="card-text-chunk">{text}</Card.Text>
-        <Button variant="text" className="text-primary rounded-sm">
+      <Card.Body className="d-grid">
+        <Card.Title className="text-primary">{title}</Card.Title>
+        <Card.Text className="text-muted">
+          <small>{text}</small>
+        </Card.Text>
+        <Button
+          variant="text"
+          className="text-primary rounded-sm"
+          style={{ placeSelf: "end" }}
+        >
           {actionLabel} {actionIcon && <FontAwesomeIcon icon={actionIcon} />}
         </Button>
       </Card.Body>
