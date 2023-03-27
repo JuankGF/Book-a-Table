@@ -16,9 +16,9 @@ export default function ImageCarousel({
   return (
     <Carousel fade controls={controls} {...props}>
       {image_sources.map((image, index) => (
-        <Carousel.Item>
+        <Carousel.Item key={`${image}_${index}`}>
           <img
-            className="d-block w-100"
+            className="d-block w-100 rounded-sm carousel-img"
             src={image}
             alt={`${index + 1} slide`}
           />

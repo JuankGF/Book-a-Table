@@ -1,35 +1,37 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Button } from "react-bootstrap";
-import ImageCarousel from "./ImageCarousel";
 
 type HeroProps = {
-  image_sources: string[];
   rest_location: string;
   text: string;
+  text_class?: string;
+  button_variant?: "primary" | "secondary";
+  className?: string;
 };
 
 export default function Hero({
-  image_sources,
+  children,
+  className,
   rest_location,
+  text_class,
+  button_variant = "primary",
   text = "We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist",
-}: HeroProps) {
+}: PropsWithChildren<HeroProps>) {
   return (
-    <Container className="hero" fluid>
-      <Row style={{ margin: "4em" }}>
-        <Col xs={6}>
-          <h2>Little Lemon</h2>
-          <h3>{rest_location}</h3>
-          <p>{text}</p>
+    <Container className={`hero ${className ?? ""}`}>
+      <Row style={{ padding: "2em" }}>
+        <Col>
+          <h2 className="text-secondary text-shadow-sm">Little Lemon</h2>
+          <h4 className={`text-shadow-sm ${text_class}`}>{rest_location}</h4>
+          <p className={text_class}>{text}</p>
+          <Button variant={button_variant} className="rounded-sm">
+            Reserve a Table
+          </Button>
         </Col>
-        <Col md="auto">
-          <ImageCarousel image_sources={image_sources}></ImageCarousel>
-        </Col>
-      </Row>
-      <Row style={{ margin: "4em" }}>
-        <Button>Reserve a Table</Button>
+        {children && <Col xs={6}>{children}</Col>}
       </Row>
     </Container>
   );
