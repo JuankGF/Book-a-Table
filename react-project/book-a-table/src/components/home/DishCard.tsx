@@ -1,4 +1,4 @@
-import { IconName } from "@fortawesome/fontawesome-svg-core";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Card } from "react-bootstrap";
@@ -8,7 +8,7 @@ type DishCardProps = {
   title: string;
   text: string;
   actionLabel: string;
-  actionIcon?: IconName;
+  actionIcon?: IconDefinition;
 };
 
 export default function DishCard({
@@ -19,12 +19,12 @@ export default function DishCard({
   actionIcon,
 }: DishCardProps) {
   return (
-    <Card>
-      <Card.Img variant="top" src={image} />
+    <Card className="shadow-sm">
+      <Card.Img variant="top" src={image} className="card-image" />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>{text}</Card.Text>
-        <Button variant="text">
+        <Card.Text className="card-text-chunk">{text}</Card.Text>
+        <Button variant="text" className="text-primary rounded-sm">
           {actionLabel} {actionIcon && <FontAwesomeIcon icon={actionIcon} />}
         </Button>
       </Card.Body>

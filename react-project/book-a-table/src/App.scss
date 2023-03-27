@@ -106,16 +106,12 @@ nav {
 }
 
 .carousel-img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
   height: 12.5rem;
 }
 
 .banner-img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
   width: 14rem;
 }
 .on-top {
@@ -131,6 +127,23 @@ nav {
 
 .text-shadow-sm {
   text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.card {
+  .card-image {
+    object-fit: cover;
+    height: 12em;
+  }
+  .card-text-chunk {
+    max-height: 6em;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    &:hover {
+      white-space: normal;
+    }
+  }
 }
 
 @media (max-width: 480px) {
