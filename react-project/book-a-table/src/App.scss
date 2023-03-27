@@ -13,7 +13,7 @@ main {
   scrollbar-base-color: base_styles.$primary_color;
   scrollbar-width: 3rem;
   max-height: calc(100% - 25vmin);
-  padding-bottom: 12vmin;
+  padding-bottom: 20vmin;
   padding-top: 2vmin;
 }
 
@@ -58,6 +58,9 @@ nav {
     &:hover {
       color: base_styles.$secondary_color;
       text-decoration: underline;
+    }
+    &.text-sm {
+      font-size: small;
     }
   }
 }
@@ -154,6 +157,10 @@ nav {
     height: 4em;
     object-fit: cover;
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 @media (max-width: 480px) {

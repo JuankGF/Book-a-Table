@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import "./App.scss";
 
+import Footer from "./components/utils/Footer";
 import Header from "./components/utils/Header";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <main>
         <Outlet />
       </main>
-      <footer>Little Lemon</footer>
+      <Footer />
     </>
   );
 }
