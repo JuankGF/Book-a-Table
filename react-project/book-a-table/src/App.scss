@@ -130,6 +130,11 @@ nav {
 }
 
 .card {
+  &.rounded-md {
+    > .card-header.rounded-md {
+      border-radius: 1rem;
+    }
+  }
   .card-image {
     object-fit: cover;
     height: 12em;
@@ -143,6 +148,11 @@ nav {
     &:hover {
       white-space: normal;
     }
+  }
+  .avatar-img-rounded {
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
   }
 }
 
