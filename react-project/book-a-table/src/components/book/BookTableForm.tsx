@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { redirect } from "react-router-dom";
 import * as Yup from "yup";
 import Field from "../utils/Field";
 
@@ -30,6 +31,7 @@ const initialValues = {
 
 export default function BookTableForm() {
   const currentDate = new Date();
+
   return (
     <Formik
       initialValues={initialValues}
@@ -38,6 +40,7 @@ export default function BookTableForm() {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
+          redirect("/reservations/book-success");
         }, 400);
       }}
     >
