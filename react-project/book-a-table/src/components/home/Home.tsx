@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Hero from "../utils/Hero";
 import ImageCarousel from "../utils/ImageCarousel";
@@ -9,6 +10,7 @@ import Testimonials from "./Testimonials";
 
 export default function Home() {
   const { isMobile } = useWindowSize();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -18,6 +20,7 @@ export default function Home() {
         className="bg-primary section"
         button_variant="secondary"
         text_class="text-white"
+        button_action={() => navigate("/reservations")}
       >
         {!isMobile && (
           <ImageCarousel

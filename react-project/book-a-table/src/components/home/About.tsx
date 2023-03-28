@@ -1,8 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import Hero from "../utils/Hero";
 
 export default function About() {
+  const navigate = useNavigate();
+
   return (
     <Hero
       id="about"
@@ -10,6 +13,7 @@ export default function About() {
       text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
     Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
       className="mb-3"
+      button_action={() => navigate("/reservations")}
     >
       <Container className="position-relative">
         <img
