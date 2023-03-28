@@ -10,9 +10,11 @@ type HeroProps = {
   text_class?: string;
   button_variant?: "primary" | "secondary";
   className?: string;
+  id?: string;
 };
 
 export default function Hero({
+  id,
   children,
   className,
   rest_location,
@@ -21,7 +23,7 @@ export default function Hero({
   text = "We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist",
 }: PropsWithChildren<HeroProps>) {
   return (
-    <Container className={`hero ${className ?? ""}`}>
+    <Container id={id} className={`hero ${className ?? ""}`}>
       <Row style={{ padding: "2em" }}>
         <Col>
           <h2 className="text-secondary text-shadow-sm">Little Lemon</h2>
