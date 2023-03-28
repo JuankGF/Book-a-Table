@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/utils/ErrorPage";
 import App from "./App";
 import Home from "./components/home/Home";
+import BookTable from "./components/book/BookTable";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/reservations",
-        element: <h1>ToDo</h1>,
+        element: <BookTable />,
       },
       {
         path: "/login",
