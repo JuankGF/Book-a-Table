@@ -2,7 +2,7 @@ import { parseISO } from "date-fns";
 import { Formik } from "formik";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Field from "../utils/Field";
 import BookingTimesPicker from "./BookingTimesPicker";
@@ -33,6 +33,7 @@ const initialValues = {
 
 export default function BookTableForm() {
   const currentDate = new Date();
+  const navigate = useNavigate();
 
   return (
     <Formik
@@ -42,7 +43,7 @@ export default function BookTableForm() {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
-          redirect("/reservations/book-success");
+          navigate("/reservations/book-success");
         }, 400);
       }}
     >
