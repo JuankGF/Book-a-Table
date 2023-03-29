@@ -1,9 +1,11 @@
+import { parseISO } from "date-fns";
 import { Formik } from "formik";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Field from "../utils/Field";
+import BookingTimesPicker from "./BookingTimesPicker";
 
 const BookTableSchema = Yup.object().shape({
   name: Yup.string().required(),
@@ -31,6 +33,7 @@ const initialValues = {
 
 export default function BookTableForm() {
   const currentDate = new Date();
+  const navigate = useNavigate();
 
   return (
     <Formik
@@ -40,7 +43,7 @@ export default function BookTableForm() {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
-          redirect("/reservations/book-success");
+          navigate("/reservations/book-success");
         }, 400);
       }}
     >
@@ -106,8 +109,7 @@ export default function BookTableForm() {
             min={currentDate.toISOString().split("T")[0]}
             required
           />
-          <Field
-            type="time"
+          <BookingTimesPicker
             placeholder="Enter time of arrival"
             field="arrival_time"
             label="Time of Arrival"
@@ -117,8 +119,10 @@ export default function BookTableForm() {
             className="mb-3"
             error={errors.arrival_time}
             touched={touched.arrival_time}
-            min={currentDate.toTimeString().substring(0, 5)}
             required
+            bookingDate={
+              values.booking_date ? parseISO(values.booking_date) : undefined
+            }
           />
           <Field
             type="number"
@@ -158,6 +162,7 @@ export default function BookTableForm() {
               type="radio"
               id="outside"
               value="outside"
+              defaultChecked={values.restaurant_area === "outside"}
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -167,6 +172,7 @@ export default function BookTableForm() {
               type="radio"
               id="inside"
               value="inside"
+              defaultChecked={values.restaurant_area === "inside"}
               onChange={handleChange}
               onBlur={handleBlur}
             />
