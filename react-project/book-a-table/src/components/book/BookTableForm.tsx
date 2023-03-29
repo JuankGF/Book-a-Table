@@ -4,6 +4,7 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { useSubmitBooking } from "../../hooks/useSubmitBooking";
 import Field from "../utils/Field";
 import BookingTimesPicker from "./BookingTimesPicker";
 
@@ -34,17 +35,19 @@ const initialValues = {
 export default function BookTableForm() {
   const currentDate = new Date();
   const navigate = useNavigate();
+  const submit = useSubmitBooking();
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={BookTableSchema}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-          navigate("/reservations/book-success");
-        }, 400);
+        submit(values)
+          .then(() => {
+            setSubmitting(false);
+            navigate("/reservations/book-success");
+          })
+          .catch((error) => alert(error));
       }}
     >
       {({
