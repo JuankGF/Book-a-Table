@@ -1,20 +1,13 @@
 @use "index" as base_styles;
 
 footer {
-  position: absolute;
-  bottom: 0px;
   min-width: 100%;
-  min-height: 12vmin;
+  min-height: 24vmin;
   background-color: base_styles.$light;
 }
 
 main {
-  overflow-y: auto;
-  scrollbar-base-color: base_styles.$primary_color;
-  scrollbar-width: 3rem;
-  max-height: calc(100% - 25vmin);
-  padding-bottom: 20vmin;
-  padding-top: 2vmin;
+  min-height: calc(100vh - 26vmin);
 }
 
 .app-logo {

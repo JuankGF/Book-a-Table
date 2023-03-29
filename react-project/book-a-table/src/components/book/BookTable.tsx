@@ -1,14 +1,13 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Hero from "../utils/Hero";
 import ImageCarousel from "../utils/ImageCarousel";
+import BookTableForm from "./BookTableForm";
 
-import About from "./About";
-import DishGrid from "./DishGrid";
-import Testimonials from "./Testimonials";
-
-export default function Home() {
+export default function BookTable() {
   const { isMobile } = useWindowSize();
   const navigate = useNavigate();
 
@@ -16,11 +15,12 @@ export default function Home() {
     <>
       <Hero
         rest_location="Chicago"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        text="Up to 4 different areas to pick and enjoy. If you need to smoke select a table outside in our beautiful garden. Inside our restaurant you’ll find music and sports in our top screens."
         className="bg-primary section"
         button_variant="secondary"
         text_class="text-white"
-        button_action={() => navigate("/reservations")}
+        button_label="Online Menu"
+        button_action={() => navigate("/menu")}
       >
         {!isMobile && (
           <ImageCarousel
@@ -33,9 +33,10 @@ export default function Home() {
           />
         )}
       </Hero>
-      <DishGrid />
-      <Testimonials />
-      <About />
+      <Container className="center-container px-6">
+        <h4 className="text-primary text-center">Reserve a Table</h4>
+        <BookTableForm />
+      </Container>
     </>
   );
 }

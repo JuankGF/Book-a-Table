@@ -3,8 +3,10 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { dishList } from "../utils/data";
 import DishCard from "./DishCard";
 import { faMotorcycle } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function DishGrid() {
+  const navigate = useNavigate();
   return (
     <Container className="center-container">
       <Row>
@@ -12,7 +14,9 @@ export default function DishGrid() {
           <h2 className="text-primary">Specials</h2>
         </Col>
         <Col xs={5} md={3} lg={2} className="d-flex justify-content-end">
-          <Button className="rounded-sm">Online Menu</Button>
+          <Button className="rounded-sm" onClick={() => navigate("/menu")}>
+            Online Menu
+          </Button>
         </Col>
       </Row>
       <Row className="py-3 px-2 g-3">
