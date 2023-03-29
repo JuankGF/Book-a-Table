@@ -158,6 +158,7 @@ export default function BookTableForm() {
               type="radio"
               id="outside"
               value="outside"
+              defaultChecked={values.restaurant_area === "outside"}
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -167,6 +168,7 @@ export default function BookTableForm() {
               type="radio"
               id="inside"
               value="inside"
+              defaultChecked={values.restaurant_area === "inside"}
               onChange={handleChange}
               onBlur={handleBlur}
             />
