@@ -13,11 +13,6 @@ type Dish = {
   price: number;
 };
 
-export type BookingTimes = {
-  date: string /* mm/dd/YYYY */;
-  availableTimes: string[] /* HH:mm P */;
-};
-
 const defBookingTimes = [
   "11:00 AM",
   "11:30 AM",
