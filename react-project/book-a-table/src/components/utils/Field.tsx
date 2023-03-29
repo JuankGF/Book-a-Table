@@ -26,7 +26,7 @@ type FieldType =
   | "week"
   | "select";
 
-type FieldProps = {
+export type FieldProps = {
   field: string;
   label: string;
   type?: FormCheckType | FieldType;
