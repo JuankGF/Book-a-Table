@@ -6,12 +6,13 @@ export type Testimonial = {
   userImage: string;
 };
 
-type Dish = {
+export type Dish = {
+  id: string;
   image: string;
   name: string;
   description: string;
-  price: number;
-  categories: string[];
+  price?: number;
+  categories?: string[];
 };
 
 const defBookingTimes = [
@@ -42,6 +43,7 @@ const defBookingTimes = [
 
 const dishList = [
   {
+    id: "1",
     image:
       "https://domf5oio6qrcr.cloudfront.net/medialibrary/5850/e58e6784-ed7e-4aad-aa4f-822b8ae4bee4.jpg",
     name: "Greek Salad",
@@ -51,6 +53,7 @@ const dishList = [
     categories: ["salads"],
   },
   {
+    id: "2",
     image:
       "https://myfoodbook.com.au/sites/default/files/collections_image/passage_to_asia_honey_soy_chicken_and_vegetable_skewers.jpg",
     name: "Bruchetta",
@@ -60,6 +63,7 @@ const dishList = [
     categories: ["mains", "specials"],
   },
   {
+    id: "3",
     image:
       "https://joyfoodsunshine.com/wp-content/uploads/2022/04/easy-lemon-pie-recipe-8.jpg",
     name: "Lemon Dessert",
@@ -69,6 +73,7 @@ const dishList = [
     categories: ["desserts"],
   },
   {
+    id: "4",
     image:
       "https://www.saveur.com/uploads/2019/09/26/16-220816-PAMU-PESCADO_EMBARAZADO-018-scaled.jpg?auto=webp",
     name: "Grilled Fish",
@@ -78,6 +83,7 @@ const dishList = [
     categories: ["mains", "specials", "lunch"],
   },
   {
+    id: "5",
     image:
       "https://www.budgetbytes.com/wp-content/uploads/2013/07/Creamy-Spinach-Tomato-Pasta-bowl-500x500.jpg",
     name: "Pasta",
@@ -87,6 +93,7 @@ const dishList = [
     categories: ["mains", "lunch"],
   },
   {
+    id: "6",
     image:
       "https://kirbiecravings.com/wp-content/uploads/2019/09/easy-french-fries-1.jpg",
     name: "Peri Fries",
@@ -96,6 +103,7 @@ const dishList = [
     categories: ["specials"],
   },
   {
+    id: "7",
     image:
       "https://www.seriouseats.com/thmb/e16lLOoVEix_JZTv7iNyAuWkPn8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__09__20140918-jamie-olivers-comfort-food-insanity-burger-david-loftus-f7d9042bdc2a468fbbd50b10d467dafd.jpg",
     name: "The Burger",
@@ -105,6 +113,7 @@ const dishList = [
     categories: ["specials", "lunch"],
   },
   {
+    id: "8",
     image:
       "https://joyfoodsunshine.com/wp-content/uploads/2022/04/mexian-ground-beef-tacos-recipe-9.jpg",
     name: "The Wrap",

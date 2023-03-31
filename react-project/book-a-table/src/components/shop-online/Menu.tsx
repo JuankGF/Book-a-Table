@@ -53,14 +53,15 @@ export default function Menu() {
         {dishList.map((dish) => {
           const shouldRender =
             activeFilters.length === 0 ||
-            hasCategory(activeFilters, dish.categories);
+            hasCategory(activeFilters, dish?.categories ?? []);
           return (
             shouldRender && (
               <Col xs={12} sm={6} lg={4} key={dish.name}>
                 <DishCard
+                  id={dish.id}
                   image={dish.image}
-                  title={dish.name}
-                  text={dish.description}
+                  name={dish.name}
+                  description={dish.description}
                   price={dish.price}
                   layoutHorizontal
                 />

@@ -21,11 +21,12 @@ export default function DishGrid() {
       </Row>
       <Row className="py-3 px-2 g-3">
         {dishList.slice(0, 3).map((dish) => (
-          <Col xs={12} sm={6} md={4} key={dish.name}>
+          <Col xs={12} sm={6} md={4} key={dish.id}>
             <DishCard
+              id={dish.id}
               image={dish.image}
-              title={dish.name}
-              text={dish.description}
+              name={dish.name}
+              description={dish.description}
               actionLabel="Order a delivery"
               actionIcon={faMotorcycle}
             />
