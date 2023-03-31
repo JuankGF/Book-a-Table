@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { PropsWithChildren, useState } from "react";
 import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.png";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
 
 type HeaderProps = {
-  showAvatar?: boolean;
   userName?: string;
 };
 
-export default function Header({ userName, showAvatar = true }: HeaderProps) {
+export default function Header({
+  userName,
+  children,
+}: PropsWithChildren<HeaderProps>) {
   const { isSmallScreen } = useWindowSize();
   const [showCollapsed, setShowCollapsed] = useState(true);
 
@@ -48,16 +50,18 @@ export default function Header({ userName, showAvatar = true }: HeaderProps) {
           <Navbar />
         </div>
         {showCollapsed && (
-          <span className="avatar navbar-end">
-            <Image
-              alt="avatar"
-              roundedCircle
-              src={`https://api.dicebear.com/5.x/fun-emoji/svg?seed=${
-                userName ?? "avatar"
-              }`}
-              width={`${isSmallScreen ? "30vmin" : "40vmin"}`}
-              className="shadow-sm"
-            ></Image>
+          <span className="navbar-end">
+            {children ?? (
+              <Image
+                alt="avatar"
+                roundedCircle
+                src={`https://api.dicebear.com/5.x/fun-emoji/svg?seed=${
+                  userName ?? "avatar"
+                }`}
+                width={`${isSmallScreen ? "30vmin" : "40vmin"}`}
+                className="shadow-sm"
+              />
+            )}
           </span>
         )}
       </div>
