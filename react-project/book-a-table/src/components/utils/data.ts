@@ -11,6 +11,7 @@ type Dish = {
   name: string;
   description: string;
   price: number;
+  categories: string[];
 };
 
 const defBookingTimes = [
@@ -47,6 +48,7 @@ const dishList = [
     price: 12.99,
     description:
       "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
+    categories: ["salads"],
   },
   {
     image:
@@ -55,6 +57,7 @@ const dishList = [
     price: 5.99,
     description:
       "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
+    categories: ["mains", "specials"],
   },
   {
     image:
@@ -63,6 +66,7 @@ const dishList = [
     price: 5.0,
     description:
       "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
+    categories: ["desserts"],
   },
   {
     image:
@@ -71,6 +75,7 @@ const dishList = [
     price: 20.0,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed cursus.",
+    categories: ["mains", "specials", "lunch"],
   },
   {
     image:
@@ -79,6 +84,7 @@ const dishList = [
     price: 18.99,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed cursus.",
+    categories: ["mains", "lunch"],
   },
   {
     image:
@@ -87,6 +93,7 @@ const dishList = [
     price: 3.99,
     description:
       "Our Fries is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.",
+    categories: ["specials"],
   },
   {
     image:
@@ -95,6 +102,7 @@ const dishList = [
     price: 6.99,
     description:
       "Our Burger is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.",
+    categories: ["specials", "lunch"],
   },
   {
     image:
@@ -103,6 +111,7 @@ const dishList = [
     price: 12.99,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed cursus.",
+    categories: ["specials", "mains"],
   },
 ] as Dish[];
 

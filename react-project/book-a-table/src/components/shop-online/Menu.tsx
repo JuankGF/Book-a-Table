@@ -6,6 +6,14 @@ import { dishList } from "../utils/data";
 import DishCard from "../home/DishCard";
 
 const filters = ["lunch", "mains", "desserts", "specials", "salads"];
+const hasCategory = (filters: string[], itemCategories: string[]) => {
+  let hasCategory = false;
+  for (let index = 0; index < itemCategories.length && !hasCategory; index++) {
+    const category = itemCategories[index];
+    hasCategory = filters.includes(category);
+  }
+  return hasCategory;
+};
 
 export default function Menu() {
   const [activeFilters, setActiveFilters] = useState([] as string[]);
@@ -42,17 +50,24 @@ export default function Menu() {
         </h6>
       </Row>
       <Row className="mt-3 border-top mx-5 py-2 g-3 pb-5">
-        {dishList.map((dish) => (
-          <Col xs={12} sm={6} lg={4} key={dish.name}>
-            <DishCard
-              image={dish.image}
-              title={dish.name}
-              text={dish.description}
-              price={dish.price}
-              layoutHorizontal
-            />
-          </Col>
-        ))}
+        {dishList.map((dish) => {
+          const shouldRender =
+            activeFilters.length === 0 ||
+            hasCategory(activeFilters, dish.categories);
+          return (
+            shouldRender && (
+              <Col xs={12} sm={6} lg={4} key={dish.name}>
+                <DishCard
+                  image={dish.image}
+                  title={dish.name}
+                  text={dish.description}
+                  price={dish.price}
+                  layoutHorizontal
+                />
+              </Col>
+            )
+          );
+        })}
       </Row>
     </Container>
   );
