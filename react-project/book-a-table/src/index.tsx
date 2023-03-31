@@ -9,6 +9,7 @@ import App from "./App";
 import Home from "./components/home/Home";
 import BookTable from "./components/book/BookTable";
 import BookSucces from "./components/book/BookSucces";
+import Menu from "./components/shop-online/Menu";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/menu",
-        element: <h1>ToDo</h1>,
+        element: <Menu />,
       },
       {
         path: "/reservations",
