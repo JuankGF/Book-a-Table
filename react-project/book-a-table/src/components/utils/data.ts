@@ -159,4 +159,7 @@ const testimonials = [
   },
 ] as Testimonial[];
 
-export { dishList, testimonials, defBookingTimes };
+const findDish = (dishId: string) =>
+  dishList.find((dish) => dish.id === dishId);
+
+export { dishList, testimonials, defBookingTimes, findDish };

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Badge, Col, Container, Row } from "react-bootstrap";
 
 import HeroSection from "../utils/HeroSection";
 import { dishList } from "../utils/data";
 import DishCard from "../home/DishCard";
+import { CartContext } from "../../context/CartContext";
+import { UserContext } from "../../context/UserContext";
 
 const filters = ["lunch", "mains", "desserts", "specials", "salads"];
 const hasCategory = (filters: string[], itemCategories: string[]) => {
@@ -16,6 +18,8 @@ const hasCategory = (filters: string[], itemCategories: string[]) => {
 };
 
 export default function Menu() {
+  const cart = useContext(CartContext);
+  const userCtx = useContext(UserContext);
   const [activeFilters, setActiveFilters] = useState([] as string[]);
 
   const toogleFilter = (newFilter: string) => {
@@ -64,6 +68,14 @@ export default function Menu() {
                   description={dish.description}
                   price={dish.price}
                   layoutHorizontal
+                  addToCart={() =>
+                    cart?.addToCart({
+                      customerId: userCtx.userId,
+                      dishId: dish.id,
+                      qty: 1,
+                      price: 0,
+                    })
+                  }
                 />
               </Col>
             )

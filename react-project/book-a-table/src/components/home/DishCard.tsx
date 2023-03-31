@@ -9,7 +9,7 @@ type DishCardProps = {
   actionLabel?: string;
   actionIcon?: IconDefinition;
   layoutHorizontal?: boolean;
-  addToCart?: (itemId: string) => void;
+  addToCart?: () => void;
 } & Dish;
 
 export default function DishCard({
@@ -48,7 +48,7 @@ export default function DishCard({
                     <Button
                       variant="text"
                       className="text-secondary mx-1"
-                      onClick={() => addToCart(id)}
+                      onClick={addToCart}
                     >
                       Add to cart <FontAwesomeIcon icon={faShoppingCart} />
                     </Button>
