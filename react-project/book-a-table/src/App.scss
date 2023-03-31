@@ -41,6 +41,9 @@ nav {
 
   .navbar-end {
     cursor: pointer;
+    .cart-badge {
+      transform: translateY(-0.8rem);
+    }
   }
 
   .app-link {
@@ -56,6 +59,22 @@ nav {
       font-size: small;
     }
   }
+}
+
+.text-xs {
+  font-size: xx-small;
+}
+
+.text-sm {
+  font-size: small;
+}
+
+.text-md {
+  font-size: medium;
+}
+
+.bg-slate {
+  background-color: rgb(231 236 240);
 }
 
 @keyframes App-logo-spin {
