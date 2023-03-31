@@ -13,7 +13,10 @@ const BookTableSchema = Yup.object().shape({
   phone: Yup.string().optional(),
   booking_date: Yup.string().required(),
   arrival_time: Yup.string().required(),
-  dinners: Yup.number().required().min(0).max(12),
+  dinners: Yup.number()
+    .required()
+    .min(1)
+    .max(80, "Sorry, 80 is our full capacity."),
   occasion: Yup.string()
     .optional()
     .oneOf(["anniversary", "birthday", "engagement"]),
