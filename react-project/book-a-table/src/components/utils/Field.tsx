@@ -80,9 +80,15 @@ export default function Field({
           isInvalid={error !== undefined && error !== ""}
           feedback={error}
           feedbackType="invalid"
+          id={field}
         />
       ) : (
-        <Form.Label as={Col} md={2} className="d-inile-flex flex-nowrap">
+        <Form.Label
+          as={Col}
+          md={2}
+          htmlFor={field}
+          className="d-inile-flex flex-nowrap"
+        >
           {label}
           {required && " *"}
         </Form.Label>
@@ -97,6 +103,7 @@ export default function Field({
             value={value}
             disabled={disabled}
             isInvalid={error !== undefined && error !== ""}
+            id={field}
           >
             {options?.map((option) =>
               typeof option === "string" ? (
@@ -120,6 +127,7 @@ export default function Field({
             isInvalid={error !== undefined && error !== ""}
             min={min}
             max={max}
+            id={field}
           />
         )}
         {type === "range" && (
@@ -130,6 +138,7 @@ export default function Field({
             onBlur={onBlur}
             value={value}
             disabled={disabled}
+            id={field}
           />
         )}
         {error && touched && (

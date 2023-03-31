@@ -186,6 +186,7 @@ export default function BookTableForm() {
             type="submit"
             disabled={isSubmitting || !isValid}
             className="mt-5"
+            aria-label="On Click"
           >
             Submit
           </Button>
