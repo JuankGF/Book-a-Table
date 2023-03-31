@@ -44,7 +44,7 @@ export default function BookTableForm() {
       validationSchema={BookTableSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          console.log(JSON.stringify(values, null, 2));
           setSubmitting(false);
           navigate("/reservations/book-success");
         }, 400);
@@ -58,6 +58,7 @@ export default function BookTableForm() {
         handleBlur,
         handleSubmit,
         isSubmitting,
+        isValid,
       }) => (
         <Form onSubmit={handleSubmit} className="py-5 px-2">
           <Field
@@ -181,7 +182,11 @@ export default function BookTableForm() {
             />
           </Form.Group>
 
-          <Button type="submit" disabled={isSubmitting} className="mt-5">
+          <Button
+            type="submit"
+            disabled={isSubmitting || !isValid}
+            className="mt-5"
+          >
             Submit
           </Button>
         </Form>
