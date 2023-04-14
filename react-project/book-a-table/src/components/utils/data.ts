@@ -6,11 +6,13 @@ export type Testimonial = {
   userImage: string;
 };
 
-type Dish = {
+export type Dish = {
+  id: string;
   image: string;
   name: string;
   description: string;
-  price: number;
+  price?: number;
+  categories?: string[];
 };
 
 const defBookingTimes = [
@@ -41,68 +43,84 @@ const defBookingTimes = [
 
 const dishList = [
   {
+    id: "1",
     image:
       "https://domf5oio6qrcr.cloudfront.net/medialibrary/5850/e58e6784-ed7e-4aad-aa4f-822b8ae4bee4.jpg",
     name: "Greek Salad",
     price: 12.99,
     description:
       "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
+    categories: ["salads"],
   },
   {
+    id: "2",
     image:
       "https://myfoodbook.com.au/sites/default/files/collections_image/passage_to_asia_honey_soy_chicken_and_vegetable_skewers.jpg",
     name: "Bruchetta",
     price: 5.99,
     description:
       "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
+    categories: ["mains", "specials"],
   },
   {
+    id: "3",
     image:
       "https://joyfoodsunshine.com/wp-content/uploads/2022/04/easy-lemon-pie-recipe-8.jpg",
     name: "Lemon Dessert",
     price: 5.0,
     description:
       "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
+    categories: ["desserts"],
   },
   {
+    id: "4",
     image:
       "https://www.saveur.com/uploads/2019/09/26/16-220816-PAMU-PESCADO_EMBARAZADO-018-scaled.jpg?auto=webp",
     name: "Grilled Fish",
     price: 20.0,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed cursus.",
+    categories: ["mains", "specials", "lunch"],
   },
   {
+    id: "5",
     image:
       "https://www.budgetbytes.com/wp-content/uploads/2013/07/Creamy-Spinach-Tomato-Pasta-bowl-500x500.jpg",
     name: "Pasta",
     price: 18.99,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed cursus.",
+    categories: ["mains", "lunch"],
   },
   {
+    id: "6",
     image:
       "https://kirbiecravings.com/wp-content/uploads/2019/09/easy-french-fries-1.jpg",
     name: "Peri Fries",
     price: 3.99,
     description:
       "Our Fries is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.",
+    categories: ["specials"],
   },
   {
+    id: "7",
     image:
       "https://www.seriouseats.com/thmb/e16lLOoVEix_JZTv7iNyAuWkPn8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__09__20140918-jamie-olivers-comfort-food-insanity-burger-david-loftus-f7d9042bdc2a468fbbd50b10d467dafd.jpg",
     name: "The Burger",
     price: 6.99,
     description:
       "Our Burger is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.",
+    categories: ["specials", "lunch"],
   },
   {
+    id: "8",
     image:
       "https://joyfoodsunshine.com/wp-content/uploads/2022/04/mexian-ground-beef-tacos-recipe-9.jpg",
     name: "The Wrap",
     price: 12.99,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed cursus.",
+    categories: ["specials", "mains"],
   },
 ] as Dish[];
 
@@ -141,4 +159,7 @@ const testimonials = [
   },
 ] as Testimonial[];
 
-export { dishList, testimonials, defBookingTimes };
+const findDish = (dishId: string) =>
+  dishList.find((dish) => dish.id === dishId);
+
+export { dishList, testimonials, defBookingTimes, findDish };

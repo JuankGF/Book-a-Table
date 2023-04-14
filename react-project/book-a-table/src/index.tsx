@@ -10,6 +10,7 @@ import Home from "./components/home/Home";
 import BookTable from "./components/book/BookTable";
 import BookSucces from "./components/book/BookSucces";
 import Menu from "./components/shop-online/Menu";
+import Cart from "./components/shop-online/Cart";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/reservations",

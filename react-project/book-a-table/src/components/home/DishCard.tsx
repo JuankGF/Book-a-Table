@@ -1,26 +1,27 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 
+import { Dish } from "../utils/data";
+
 type DishCardProps = {
-  image: string;
-  title: string;
-  text: string;
   actionLabel?: string;
   actionIcon?: IconDefinition;
   layoutHorizontal?: boolean;
-  price?: number;
-};
+  addToCart?: () => void;
+} & Dish;
 
 export default function DishCard({
+  id,
   image,
-  title,
-  text,
+  name,
+  description,
   actionLabel,
   actionIcon,
   layoutHorizontal,
   price,
+  addToCart,
 }: DishCardProps) {
   return (
     <Card className="shadow-sm h-100">
@@ -34,14 +35,25 @@ export default function DishCard({
         {layoutHorizontal ? (
           <>
             <Col xs={6} md={7} lg={8} xl={9}>
-              <Card.Title className="text-primary">{title}</Card.Title>
+              <Card.Title className="text-primary">{name}</Card.Title>
               <Card.Text className="text-muted card-text-chunk">
-                <small>{text}</small>
+                <small>{description}</small>
               </Card.Text>
               {price && (
-                <small className="text-secondary">
-                  <b>${price}</b>
-                </small>
+                <div>
+                  <small className="text-secondary">
+                    <b>${price}</b>
+                  </small>
+                  {addToCart && (
+                    <Button
+                      variant="text"
+                      className="text-secondary mx-1"
+                      onClick={addToCart}
+                    >
+                      Add to cart <FontAwesomeIcon icon={faShoppingCart} />
+                    </Button>
+                  )}
+                </div>
               )}
             </Col>
 
@@ -55,9 +67,9 @@ export default function DishCard({
           </>
         ) : (
           <>
-            <Card.Title className="text-primary">{title}</Card.Title>
+            <Card.Title className="text-primary">{name}</Card.Title>
             <Card.Text className="text-muted">
-              <small>{text}</small>
+              <small>{description}</small>
             </Card.Text>
             {price && (
               <small className="text-secondary">
